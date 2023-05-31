@@ -8,5 +8,9 @@ namespace MyApp.Namespace
         public void OnGet()
         {
         }
+        public void OnPost(User u)
+        {
+            
+        }
     }
 }
