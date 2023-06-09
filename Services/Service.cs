@@ -5,12 +5,13 @@ public class Service
 {
     SqlConnection? con =null;
     public Service(){
-         SqlConnection con=new SqlConnection("");
+        con=new SqlConnection("Data Source=PCC-SERVER\\SQLEXPRESS;Initial Catalog=TestDB;Integrated Security=true;");
     }
     public void Execute(SqlCommand cmd)
     {
         try{
             con.Open();
+            cmd.Connection=con;
             cmd.ExecuteNonQuery();
             con.Close();
         }finally{
