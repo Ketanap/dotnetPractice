@@ -15,4 +15,12 @@ public class UserService : Service
           Execute(cm);
             
     }
+    public bool Login(User u)
+    {
+          SqlCommand cm =new SqlCommand("select * from tblUser where Email=@Email and Password=@Password");
+          cm.Parameters.AddWithValue("@Email",u.Email);
+          cm.Parameters.AddWithValue("@Password",u.Password);
+          DataTable dt=GetData(cm);
+          return (dt.Rows.Count>0);
+    }
 }
